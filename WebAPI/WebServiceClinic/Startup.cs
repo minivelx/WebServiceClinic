@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Entities;
 using System.Text;
+using Logic.Repository;
+using Logic;
 
 namespace WebServiceClinic
 {
@@ -39,6 +41,9 @@ namespace WebServiceClinic
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("serverConnection"))
             .EnableSensitiveDataLogging());
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            //services.AddScoped<LMedicalAppointmentType>();
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {

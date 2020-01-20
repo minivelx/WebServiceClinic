@@ -17,16 +17,18 @@ namespace WebServiceClinic.Controllers
     [Route("api/[controller]")]
     public class MedicalAppointmentTypeController : Controller
     {
-        private readonly GenericRepository<MedicalAppointmentType> _repository;
+        private readonly IGenericRepository<MedicalAppointmentType> _repository;
+        private readonly IUnitOfWork _IunitOfWork;
 
-        public MedicalAppointmentTypeController(GenericRepository<MedicalAppointmentType> repository)
+        public MedicalAppointmentTypeController(IGenericRepository<MedicalAppointmentType> repository, IUnitOfWork unitOfWork)
         {
             _repository = repository;
+            _IunitOfWork = unitOfWork;
         }
 
         // GET: api/MedicalAppointmentType
         [HttpGet]
-        public async Task<IActionResult> GetMedicalAppointmentTypesByUser()
+        public async Task<IActionResult> GetMedicalAppointmentTypes()
         {
             try
             {

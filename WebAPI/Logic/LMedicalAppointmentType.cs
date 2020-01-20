@@ -7,9 +7,10 @@ namespace Logic
 {
     public class LMedicalAppointmentType
     {
-        public static List<MedicalAppointmentType> GetAll(GenericRepository<MedicalAppointmentType> repository)
+        public static List<MedicalAppointmentType> GetAll(IGenericRepository<MedicalAppointmentType> repository)
         {
-            return repository.GetAll().ToList();
+            var lstResult = repository.GetAll();
+            return lstResult.ToList();
         }
     }
 }

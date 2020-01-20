@@ -16,11 +16,14 @@ namespace Entities
         [Required]
         public DateTime Date { get; set; }
 
-        [Required, StringLength(450)]
+        [StringLength(450)]
         public string UserId { get; set; }
 
         [Required]
         public bool Active { get; set; }
+
+        [NotMapped]
+        public string NameType { get { return MedicalAppointmentType?.Description ?? ""; } }
 
         [JsonIgnore]
         public MedicalAppointmentType MedicalAppointmentType { get; set; }

@@ -1,6 +1,6 @@
-﻿using Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -8,43 +8,48 @@ namespace Logic.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        internal ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public GenericRepository(ApplicationDbContext context)
+        public GenericRepository(IUnitOfWork UnitOfWork)
         {
-            _context = context;
+            _unitOfWork = UnitOfWork;
         }
 
         public void Add(T entity)
         {
-            _context.Set<T>().Add(entity);
+            _unitOfWork._context.Set<T>().Add(entity);
         }
 
         public void Delete(T entity)
         {
-            _context.Set<T>().Remove(entity);
+            _unitOfWork._context.Set<T>().Remove(entity);
         }
 
         public void Edit(T entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
+            _unitOfWork._context.Entry(entity).State = EntityState.Modified;
         }
 
-        public IQueryable<T> Find(Expression<Func<T, bool>> predicate)
+        //public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        //{
+        //    return _unitOfWork._context.Set<T>().Where(predicate);
+        //}
+
+        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
         {
-            IQueryable<T> query = _context.Set<T>().Where(predicate);
-            return query;
+            IQueryable<T> query = _unitOfWork._context.Set<T>();
+            foreach (var includeProperty in includeProperties)
+            {
+                query = query.Include(includeProperty);
+            }
+
+            return query.Where(predicate);
         }
 
-        public IQueryable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            IQueryable<T> query = _context.Set<T>();
-            return query;
+            return _unitOfWork._context.Set<T>().ToList();
         }
-
-        public void Save()
-        {
-            _context.SaveChanges();
-        }
+        
     }
 }

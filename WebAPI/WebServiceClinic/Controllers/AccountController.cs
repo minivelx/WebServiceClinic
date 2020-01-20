@@ -44,9 +44,14 @@ namespace WebServiceClinic.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] UserInfo model)
         {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { success = false, message = ErrorModelValidation.ShowError(new SerializableError(ModelState).Values) });
+            }
+
             try
             {
-                var user = new ApplicationUser { UserName = model.PersonalID, Name = model.Name, Email = model.PersonalId, Active = true };
+                var user = new ApplicationUser { UserName = model.PersonalId, Name = model.Name, Email = model.Email, PhoneNumber = model.PhoneNumber, Active = true };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -147,11 +152,6 @@ namespace WebServiceClinic.Controllers
         [Route("Login")]
         public async Task<IActionResult> Login([FromBody] UserInfo userInfo)
         {
-            if (!ModelState.IsValid)
-            {
-                return Json(new { success = false, message = ErrorModelValidation.ShowError(new SerializableError(ModelState).Values) });
-            }
-
             try
             {
                 var usuario = userInfo.PersonalId.Contains('@') ? _userManager.FindByEmailAsync(userInfo.PersonalId).Result : _userManager.FindByNameAsync(userInfo.PersonalId).Result;
