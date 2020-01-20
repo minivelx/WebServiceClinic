@@ -51,7 +51,7 @@ namespace WebServiceClinic.Controllers
 
             try
             {
-                var user = new ApplicationUser { UserName = model.PersonalId, Name = model.Name, Email = model.Email, PhoneNumber = model.PhoneNumber, Active = true };
+                var user = new ApplicationUser { UserName = model.PersonalId, Name = model.Name, Email = model.Email, PhoneNumber = model.PhoneNumber,  PersonalID = model.PersonalId, Active = true };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -154,7 +154,7 @@ namespace WebServiceClinic.Controllers
         {
             try
             {
-                var usuario = userInfo.PersonalId.Contains('@') ? _userManager.FindByEmailAsync(userInfo.PersonalId).Result : _userManager.FindByNameAsync(userInfo.PersonalId).Result;
+                var usuario = userInfo.Email.Contains('@') ? _userManager.FindByEmailAsync(userInfo.Email).Result : _userManager.FindByNameAsync(userInfo.Email).Result;
 
                 if (usuario == null)
                     return Json(new { success = false, message = "Usuario o contraseña invalido." });
@@ -182,16 +182,16 @@ namespace WebServiceClinic.Controllers
                 ApplicationUser Usuario;
                 // Adding roles code
                 // Roles property is string collection but you can modify Select code if it it's not 
-                if (userInfo.PersonalId.Contains('@'))
-                    Usuario = _userManager.FindByEmailAsync(userInfo.PersonalId).Result;
+                if (userInfo.Email.Contains('@'))
+                    Usuario = _userManager.FindByEmailAsync(userInfo.Email).Result;
                 else
-                    Usuario = _userManager.FindByNameAsync(userInfo.PersonalId).Result;
+                    Usuario = _userManager.FindByNameAsync(userInfo.Email).Result;
 
                 var roles = _userManager.GetRolesAsync(Usuario).Result;
 
                 var claims = new[]
                 {
-                    new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.PersonalId),
+                    new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
                     new Claim(ClaimTypes.NameIdentifier, Usuario.Id), 
                     new Claim(ClaimTypes.GivenName, Usuario.Name), 
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
