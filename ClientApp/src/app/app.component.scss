@@ -1,0 +1,24 @@
+@import "../assets/scss/variables.scss";
+@import "../assets/scss/responsive.scss";
+
+.body-content{
+    min-height: calc(100vh - 113px);
+}
+
+app-footer{
+    height: 50px;
+}
+
+.login-content{
+    position: absolute;
+    width: 100%;
+    z-index: 300 !important;
+    margin-top: -50px !important;
+    padding: 0;
+    height: 100vh;
+    margin-left: 0 !important;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    background-color: $background-color !important;
+}

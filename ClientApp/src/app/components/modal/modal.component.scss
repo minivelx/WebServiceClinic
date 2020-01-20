@@ -1,0 +1,23 @@
+@import "../../../assets/scss/variables.scss";
+@import "../../../assets/scss/responsive.scss";
+
+.modal-dialog {
+    max-width: 100%;
+    margin: 0;
+}
+
+.modal-header {
+    background-color: $primary-color;
+    color: $text-light;
+    border-bottom: 1px solid $secondary-color;
+    display: flex;
+    align-items: center;
+}
+
+.close{
+    color: $text-light;
+}
+
+.close:hover{
+    opacity: 1;
+}

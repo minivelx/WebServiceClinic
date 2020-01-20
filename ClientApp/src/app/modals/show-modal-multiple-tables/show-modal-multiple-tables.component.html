@@ -1,0 +1,23 @@
+<app-modal caption="{{title}}" bodyClass="table-body" modalSize="modal-lg">
+  <h3>{{subtitle}}</h3>
+  <app-show-table #form [columns]="columns" [data]="data" [attributes]="attributes" [dataTypes]="dataTypes"
+    [footer]="footer" [columnsFooter]="columnsFooter">
+  </app-show-table>
+  <h3>{{subtitle2}}</h3>
+  <app-show-table #form [columns]="columns2" [data]="data2" [attributes]="attributes2" [dataTypes]="dataTypes2"
+    [footer]="footer2" [columnsFooter]="columnsFooter2">
+  </app-show-table>
+  <div *ngIf="total">
+    <div class="form-group col-sm-12">
+      <div class="row">
+        <div class="form-group col-sm-5"></div>
+        <div class="form-group col-sm-2">
+          <h3>{{text}}</h3>
+        </div>
+        <div class="form-group col-sm-5">
+          <input readonly [(ngModel)]="val" id="val" class="form-control rounded currency" type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>

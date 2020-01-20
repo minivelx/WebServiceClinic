@@ -1,0 +1,37 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+
+#iconMenu{
+    padding-bottom: 6px !important;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .meta{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.avatar {
+    color: $primary-color;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.dropdown-menu{
+    left: auto;
+    right: 0;
+    display: block;
+}
+
+.dropdown-menu li>a:hover:before {
+    border-left: 3px solid $primary-color;
+}
+
+.navbar-profile:hover{
+    background-color: #eee;
+}

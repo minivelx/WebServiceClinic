@@ -1,0 +1,37 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+
+
+.sidebar-content{
+    padding: 0;
+    .media{
+        overflow: visible;
+        #logoMobile{
+            display: none;
+            margin-top: -20%;
+            img{
+                width: 100%;
+                border-radius: 0;
+                height: auto;
+            }
+            @include large {
+                &{
+                    display: block;
+                }
+            }
+        }
+    }
+    border-bottom: 2px solid $secondary-color;
+
+    @media (min-width: 100px){
+		background-color: #fff;
+	}
+
+    @media (min-width: 1023px){
+		background-color: #fff;
+	}
+    
+    @media (min-width: 1200px){
+		background-color: #fff;
+	}
+}

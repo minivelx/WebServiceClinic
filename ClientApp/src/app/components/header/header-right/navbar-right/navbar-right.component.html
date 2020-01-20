@@ -1,0 +1,18 @@
+<ul class="nav navbar-nav navbar-right" (clickOutside)="state = false">
+  <li class="dropdown navbar-profile">
+    <a class="dropdown-toggle" (click)="state = !state" id="iconMenu">
+      <span class="meta caret">
+        <span class="avatar">
+          <i class="fa fa-user" style="font-size: 35px"></i>
+        </span>
+        <span class="text hidden-xs hidden-sm text-muted">{{ globalService.currentUser }}</span>
+      </span>
+    </a>
+    <ul [@fadeVerticalAnimation] *ngIf="state" class="dropdown-menu">
+      <li class="dropdown-header">Cuenta</li>      
+      <li>
+        <a (click)="closeSession()">Cerrar sesión</a>
+      </li>
+    </ul>
+  </li>
+</ul>

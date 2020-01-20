@@ -1,0 +1,17 @@
+<div role="document" class="modal-dialog {{modalSize}}">
+  <div class="modal-content">
+    <div class="modal-header modal-primary">
+      <h4 class="modal-title">{{title === undefined ? caption : title}}</h4>
+      <button _ngcontent-c0="" class="close" aria-label="Close" (click)="this.bsModalRef.hide()"
+        type="button">×</button>
+    </div>
+    <div class="modal-body {{bodyClass}}">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer" *ngIf="showButtons">
+      <button type="button" class="btn btn-danger" (click)="this.bsModalRef.hide()">Cancelar</button>
+      <button type="button" class="btn btn-primary" (click)="child.submit()" [tooltip]="messageTooltip" placement="top"
+      [adaptivePosition]="false">Aceptar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/scss/fonts.scss";
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+@import "./src/assets/scss/datatable.scss";
+@import "./src/assets/scss/side-menu.scss";
+@import "./src/assets/scss/datetime-picker.scss";
+@import "./src/assets/scss/toast.scss";
+@import "./src/assets/scss/spinner.scss";
+@import "../node_modules/bootstrap/scss/functions.scss";
+@import "../node_modules/bootstrap/scss/variables.scss";
+@import "../node_modules/bootstrap/scss/mixins.scss";
+@import "../node_modules/ngx-toastr/toastr-bs4-alert.scss";
+@import "./src/assets/scss/page.scss";
+
+//Fuente de los textos
+* {
+  font-family: "roboto";
+  font-size: 13px;
+}
+
+body {
+  background-color: $background-color;
+  color: $text-dark;
+  overflow-y: hidden;
+}
+
+.body-content {
+  height: calc(100vh - 113px);
+  overflow-y: auto;
+}
+//html, body { height: 100%; }
+//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

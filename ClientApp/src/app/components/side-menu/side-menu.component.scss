@@ -1,0 +1,27 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+
+a:hover{
+    cursor: pointer;
+}
+
+#sidebar-menu{
+    overflow-y: scroll;
+    height: 500px;
+}
+
+#sidebar-left {
+    background-color: $sidemenu-backgroud-color;
+}
+
+#sidebar-menu::-webkit-scrollbar { 
+    display: block; 
+}
+
+body.page-sidebar-fixed #sidebar-left {
+    position: absolute;
+  }
+
+.hidden{
+    display: none;
+}

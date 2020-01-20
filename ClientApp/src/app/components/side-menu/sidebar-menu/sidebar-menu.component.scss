@@ -1,0 +1,13 @@
+.sidebar-menu {
+    height: calc(97vh - 113px);
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #c1c1c1;
+}

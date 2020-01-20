@@ -1,0 +1,8 @@
+<app-header></app-header>
+<app-side-menu></app-side-menu>
+<section id="page-content" [ngClass]="{'login-content': !showComponent}">
+    <div class="body-content" [ngClass]="{'login-content': !showComponent}">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer *ngIf="showComponent"></app-footer>
+</section>

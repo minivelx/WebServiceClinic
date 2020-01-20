@@ -1,0 +1,67 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+.sidebar-box .sidebar-menu>li>a>.icon:after, .sidebar-circle .sidebar-menu>li>a>.icon:after, .sidebar-rounded .sidebar-menu>li>a>.icon:after {
+    border: 1px solid $secondary-color;
+}
+
+.sidebar-circle .sidebar-menu>li>a>.icon i{
+    border: 2px solid $secondary-color;
+    background-color: $sidemenu-backgroud-color;
+}
+
+#sidebar-left:after {
+    background-color: $sidemenu-backgroud-color;
+}
+
+.sidebar-menu li ul {
+    background-color: $sidemenu-backgroud-color;
+}
+
+.sidebar-menu>li>a:hover .icon>i, .sidebar-menu>li>a:hover .text {
+    color: $black;
+}
+
+.sidebar-menu>li>a>.icon i {
+    color: $dark-grey;
+}
+
+.sidebar-menu>li>a>span {
+    color: $dark-grey;
+}
+
+.sidebar-menu>li.active>a>.icon i, .sidebar-menu>li>a:hover span {
+    color: $black;
+}
+
+.sidebar-menu>li>ul>li>a:hover {
+    background-color: $grey;
+}
+
+.sidebar-box .sidebar-menu>li>ul>li:after, .sidebar-circle .sidebar-menu>li>ul>li:after, .sidebar-rounded .sidebar-menu>li>ul>li:after {
+    box-shadow: 0 0 0 2px $secondary-color;
+}
+
+.sidebar-box .sidebar-menu>li>ul:after, .sidebar-circle .sidebar-menu>li>ul:after, .sidebar-rounded .sidebar-menu>li>ul:after {
+    border-left: 2px solid $secondary-color;
+}
+
+.sidebar-menu ul li a:before, .sidebar-menu ul li a:hover {
+    color: $secondary-color;
+    cursor: pointer;
+}
+
+#sidebar-left.sidebar-box .sidebar-menu>li>ul>li:hover:after, #sidebar-left.sidebar-circle .sidebar-menu>li>ul>li:hover:after, #sidebar-left.sidebar-rounded .sidebar-menu>li>ul>li:hover:after {
+    box-shadow: 0 0 0 5px $primary-color;
+}
+
+#sidebar-left .sidebar-menu ul li:hover:after {
+    background-color: $primary-color;
+}
+
+body.page-sidebar-minimize #sidebar-left .sidebar-menu>li:hover{
+    background-color: $sidemenu-backgroud-color;
+}
+
+body.page-sidebar-minimize #sidebar-left .sidebar-menu>li:hover.submenu>ul{
+    background-color: $sidemenu-backgroud-color;
+}

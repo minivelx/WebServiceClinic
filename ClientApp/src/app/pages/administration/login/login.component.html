@@ -1,0 +1,50 @@
+<div [@fadeInAnimation] id="sign-wrapper" class="rounded">
+    <div class="brand">
+        <!-- <img alt="brand logo" class="logo" src="assets/img/logo.png"> -->
+    </div>
+    <form id="formLogin" [formGroup]="formLogin" autocomplete="off" (submit)="submit()"
+        class="sign-in form-horizontal shadow rounded no-overflow ng-untouched ng-pristine ng-invalid" novalidate="">
+        <div class="sign-header rounded">
+            <div class="form-group">
+                <div class="sign-text"><span>Iniciar sesión</span></div>
+            </div>
+        </div>
+        <div class="sign-body">
+            <div class="form-group">
+                <div class="input-group-lg input-icon right">
+                    <i class="fa fa-user"></i>
+                    <input formControlName="email" class="form-control rounded" placeholder="Usuario" type="text"
+                        [ngClass]="{'invalid-field': isSubmitted && this.formLogin.controls.email.invalid}">
+                    <div *ngIf="isSubmitted && this.formLogin.controls.email.errors">
+                        <div *ngIf="isSubmitted && this.formLogin.controls.email.errors.required" class="invalid-text">
+                            El campo es obligatorio
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group-lg input-icon right">
+                    <i class="fa fa-lock"></i>
+                    <input formControlName="password" class="form-control rounded" placeholder="Contraseña" type="password"
+                        [ngClass]="{'invalid-field': isSubmitted && this.formLogin.controls.password.invalid}">
+                    <div *ngIf="isSubmitted && this.formLogin.controls.password.errors">
+                        <div *ngIf="isSubmitted && this.formLogin.controls.password.errors.required"
+                            class="invalid-text">
+                            El campo es obligatorio
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sign-footer rounded">
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block no-margin rounded" id="login-btn" type="submit">Iniciar
+                    sesión</button>
+            </div>
+        </div>
+    </form>
+</div>
+<ngx-spinner type="line-spin-clockwise-fade-rotating" size = "default">
+    <!--Spinner message-->
+    <p></p>
+</ngx-spinner>

@@ -1,0 +1,14 @@
+.buttons_container{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+    .btn{
+        line-height: 1;
+        border-radius: 20px;
+    }
+    .btn-danger{
+        margin-right: 10px;
+    }
+}

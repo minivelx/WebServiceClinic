@@ -1,0 +1,21 @@
+<div *ngIf="title" [class]="options.titleClass" [attr.aria-label]="title">
+  {{ title }}
+</div>
+<div *ngIf="message && options.enableHtml" role="alertdialog" aria-live="polite" [class]="options.messageClass"
+  [innerHTML]="message">
+</div>
+<div *ngIf="message && !options.enableHtml" role="alertdialog" aria-live="polite" [class]="options.messageClass"
+  [attr.aria-label]="message">
+  {{ message }}
+</div>
+<div *ngIf="options.closeButton" class="buttons_container">
+  <button (click)="remove()" class="btn btn-danger" aria-label="Close">
+    Cancelar
+  </button>
+  <button (click)="action()" class="btn btn-primary" aria-label="Close">
+    Aceptar
+  </button>
+</div>
+<div *ngIf="options.progressBar">
+  <div class="toast-progress" [style.width]="width + '%'"></div>
+</div>

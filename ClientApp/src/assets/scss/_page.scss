@@ -1,0 +1,227 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+
+.panel-info>.panel-heading {
+    background-color: $primary-color;
+    border: 1px solid $primary-color;
+    color: $text-light;
+}
+
+.btn{
+    border-radius: $border-radius;
+}
+
+.form-control{
+    border-radius: $border-radius;
+    border-top-right-radius: $border-radius !important;
+    border-bottom-right-radius: $border-radius !important;
+}
+
+.panel .panel-heading .panel-title{
+    margin-bottom: 0;
+}
+
+.panel {
+    background-color: $backgroud-component-color;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.btn-primary,.btn-danger,.btn-info {
+    background-color: $background-button;
+    border-color: $background-button;
+    color: $text-light;
+}
+
+.btn-primary.disabled, .btn-primary:focus, .btn-primary:hover, .btn-primary[disabled] {
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: $text-light;
+}
+
+.btn-primary.active, .btn-primary:not(:disabled):not(.disabled):active{
+    background-color: $background-button;
+    border-color: $background-button;
+    color: $text-light;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .show>.btn-primary.dropdown-toggle {
+    background-color: $primary-color;
+    opacity: 0.9;
+    border-color: $primary-color;
+    color: $text-light;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.modal-primary .modal-header {
+    background-color: $primary-color;
+    color: $text-light;
+    border-bottom: 1px solid $secondary-color;
+}
+
+button:focus {
+    outline: none;
+}
+
+.btn-danger:hover{
+    background-color: $danger-button;
+    border-color: $danger-button;
+    color: $text-light;
+}
+
+.form-control:focus {
+    border: 0;
+}
+
+.input-group-addon{
+    padding: 6px 12px;
+}
+
+.bg-primary{
+    border: 0;
+    background-color: $primary-color !important;
+    button{
+        height: 100%;
+    }
+}
+
+input.no-border-right:focus, textarea.no-border-right:focus {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.page-sidebar-minimize, .page-sidebar-minimize-auto{
+    .sidebar-content{
+        .media{
+            #logoMobile{
+                display: none !important;
+            }
+        }
+    }
+}
+
+.page-sidebar-left-show{
+    .sidebar-content{
+        .media{
+            #logoMobile{
+                margin-top: 0 !important;
+            }
+        }
+    }
+}
+
+.invalid-field{
+    border: 1px solid $danger-field !important;
+    border-color: $danger-field !important;
+}
+
+.invalid-field:focus{
+    box-shadow: 0 0 0 0.2rem rgba(230, 67, 40, .5);
+}
+
+.invalid-text{
+    color: $danger-field;
+}
+
+.required-field{
+    color: $danger-field;
+}
+
+.btn-info:hover{
+    cursor: pointer;
+    background-color: $tertiary-color;
+    border-color: $tertiary-color;
+    color: $text-light;
+}
+
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+}
+
+.form-control:disabled:hover{
+    cursor: not-allowed;
+}
+
+.ckbox-success input[type=checkbox]:checked~label::after {
+    border-color: $primary-color;
+    background-color: $primary-color;
+}
+
+.rdio-theme input[type=radio]:checked~label::after {
+    border-color: $primary-color;
+    background-color: $primary-color;
+}
+
+.ckbox, .rdio {
+    line-height: unset !important;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+}
+
+.form-control:disabled:hover{
+    cursor: not-allowed;
+}
+
+.ckbox-all input[type=checkbox]:checked ~ label::after {
+    border-color: $text-light;
+    background-color: $text-light;
+    color: $primary-color;
+}
+
+
+.ckbox-all {
+    align-items: center;
+    line-height: 0 !important;
+    margin-top: 0;
+}
+
+.btn-primary:hover {
+    cursor: pointer;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.flex-end{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.flex-start{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: $text-dark;
+}
+
+.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: #b8c1d4 #b8c1d4 #b8c1d4;
+}
+
+.pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: $secondary-color;
+    border: 1px solid $secondary-color;
+}

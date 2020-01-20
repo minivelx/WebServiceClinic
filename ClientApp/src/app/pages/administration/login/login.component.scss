@@ -1,0 +1,82 @@
+@import "../../../../assets/scss/variables.scss";
+@import "../../../../assets/scss/responsive.scss";
+
+.logo{
+    max-width: 220px;
+    max-height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#formLogin{
+    margin-top: 10px;
+}
+
+
+.sign-header{
+    color: #fff;
+    padding: 20px 15px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
+}
+
+.sign-text span{
+    display: inline-block;
+    padding: 0 10px;
+    position: relative;
+    color: #fff;
+    font-weight: 300;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.form-group{
+    margin-bottom: 0;
+    padding: 0 15px;
+}
+
+#sign-wrapper{
+    width: 350px;
+    margin: 0 auto;
+    padding-top: 5%;
+    height: 100%;
+    position: relative;
+    input{
+        font-size: 12px;
+    }
+}
+
+.input-group-lg>.form-control, .input-group-lg>.input-group-addon, .input-group-lg>.input-group-btn>.btn {
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+}
+
+.input-icon.right>i {
+    font-size: 25px;
+    right: 25px;
+    color: $secondary-color;
+}
+
+.input-group-addon {
+    background-color: white;
+}
+
+.sign-body {
+    background-color: $backgroud-component-color;
+    margin: 0;
+    padding: 15px 0;
+    .form-group{
+        margin-bottom: 15px;
+    }
+}
+
+.sign-footer{
+    padding: 15px 0;
+    background-color:  $backgroud-component-color;
+}

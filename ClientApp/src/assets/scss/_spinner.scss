@@ -1,0 +1,15 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+
+.fullScreen{
+    .black-overlay {
+        position: fixed !important;
+    }
+}
+
+.black-overlay {
+    background-color: transparent !important;
+    div{
+        color: $text-dark !important;
+    }
+}

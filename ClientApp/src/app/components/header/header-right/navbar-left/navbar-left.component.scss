@@ -1,0 +1,16 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+
+.navbar-minimize{
+    margin-left: -1px;
+    &:hover{
+        background-color: #eee;
+    }
+    a{
+        display: block;
+        padding: 17px 15px 13px 15px;
+    }
+    i {
+        color: $primary-color;
+    }
+}

@@ -1,0 +1,47 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+
+.cdk-overlay-container {
+    z-index: 999999;
+}
+
+.owl-dt-calendar-table .owl-dt-calendar-cell-content {
+    font-size: 13px;
+    border: 1px solid transparent;
+    border-radius: 0;
+
+}
+
+.owl-dt-calendar-table .owl-dt-calendar-cell-selected {
+    color: $text-light;
+    background-color: $primary-color;
+}
+
+.owl-dt-container-control-button:hover .owl-dt-control-button-content {
+    color: $text-light;
+    background-color: $primary-color;
+}
+
+.owl-dt-container-control-button .owl-dt-control-button-content {
+    color: $text-dark;
+}
+
+.owl-dt-container-buttons {
+    button:first-child{
+        border-right: 1px solid rgba(0,0,0,.12);
+        &:hover{
+            span{
+                background-color: $danger-button;
+            }
+        }
+    }
+}
+
+.owl-dt-timer-hour12 {
+    color: $primary-color;
+}
+
+.owl-dt-timer-hour12 .owl-dt-timer-hour12-box:focus .owl-dt-control-button-content, .owl-dt-timer-hour12 .owl-dt-timer-hour12-box:hover .owl-dt-control-button-content {
+    background:  $primary-color;
+    color: $text-light;
+}

@@ -1,0 +1,33 @@
+@import "./src/assets/scss/variables.scss";
+@import "./src/assets/scss/responsive.scss";
+
+#logo{
+    a{
+        height: 6em;
+        img{
+            padding: 5px;
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+}
+#menuIcon{
+    background-color: #FFFFFF;
+    color: $primary-color;
+    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    border-top: 1px solid #FFFFFF;
+}
+
+.navbar-brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+@include large {
+    #logo{
+        display: none;
+    }
+}
