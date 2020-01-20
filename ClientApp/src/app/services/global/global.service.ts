@@ -38,6 +38,7 @@ export class GlobalService {
         this.setTokenHeader(tokenLS.token);
         this.roles = tokenLS.roles;
         this.currentUser = tokenLS.nombre;
+        this.navigationService.medicalAppointmentPage();
       }
     }
     this.lenguajeDataTable = {

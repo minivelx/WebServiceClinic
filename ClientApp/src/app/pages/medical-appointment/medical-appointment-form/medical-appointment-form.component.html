@@ -1,0 +1,35 @@
+<form id="formMedicalAppointment" [formGroup]="formMedicalAppointment" autocomplete="off">
+    <div class="form-body">
+        <div class="form-group">
+
+            <label class="control-label">Tipo Cita</label><span class="required-field"> *</span>
+            <select class="form-control rounded" formControlName="idMedicalAppointmentType"
+                [ngClass]="{'invalid-field': isSubmitted && this.formMedicalAppointment.controls.idMedicalAppointmentType.invalid}">
+                <option *ngFor="let appointmentType of lstMedicalAppointmentTypes" value="{{ appointmentType.id }}">
+                    {{ appointmentType.description }}
+                </option>
+            </select>
+            <div *ngIf="isSubmitted && this.formMedicalAppointment.controls.idMedicalAppointmentType.errors">
+                <div *ngIf="isSubmitted && this.formMedicalAppointment.controls.idMedicalAppointmentType.errors.required"
+                    class="invalid-text">
+                    El campo es obligatorio
+                </div>
+            </div>
+
+            <label class="control-label">Fecha</label><span class="required-field"> *</span>
+            <div class="input-group mb-15">
+                <input formControlName="date" class="form-control rounded" [owlDateTimeTrigger]="dt" [owlDateTime]="dt"
+                    [ngClass]="{'invalid-field': isSubmitted && this.formMedicalAppointment.controls.date.invalid}" readonly>
+                <owl-date-time [startAt]="this.cMedicalAppointment.date" [firstDayOfWeek]="1" #dt>
+                </owl-date-time>
+                <div *ngIf="isSubmitted && this.formMedicalAppointment.controls.date.errors">
+                    <div *ngIf="isSubmitted && this.formMedicalAppointment.controls.date.errors.required"
+                        class="invalid-text">
+                        El campo es obligatorio
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

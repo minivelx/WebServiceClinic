@@ -41,16 +41,15 @@ import { SelectTableComponent } from './components/select-table/select-table.com
 import { TitleCasePipe, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ShowModalMultipleTablesComponent } from './modals/show-modal-multiple-tables/show-modal-multiple-tables.component';
 import { LoginComponent } from './pages/administration/login/login.component';
-import { EditPasswordFormComponent } from './pages/administration/users-accounts/edit-password-form/edit-password-form.component';
-import { EditPasswordModalComponent } from './modals/edit-password-modal/edit-password-modal.component';
 import { ChangePasswordComponent } from './pages/administration/change-password/change-password.component';
 import { HomeComponent } from './pages/administration/home/home.component';
 import { SelectTablePaginationComponent } from './components/select-table-pagination/select-table-pagination.component';
 import { SelectPaginationModalComponent } from './modals/select-pagination-modal/select-pagination-modal.component';
 import { UserAccountModalComponent } from './modals/user-account-modal/user-account-modal.component';
-import { UpdateDataComponent } from './pages/administration/update-data/update-data.component';
-import { UsersAccountsComponent } from './pages/administration/users-accounts/users-accounts.component';
 import { UserAccountFormComponent } from './pages/administration/users-accounts/user-account-form/user-account-form.component';
+import { MedicalAppointmentComponent } from './pages/medical-appointment/medical-appointment.component';
+import { MedicalAppointmentModalComponent } from './modals/medical-appointment-modal/medical-appointment-modal.component';
+import { MedicalAppointmentFormComponent } from './pages/medical-appointment/medical-appointment-form/medical-appointment-form.component';
 
 export const MY_MOMENT_FORMATS = {
   parseInput: 'l LT',
@@ -85,15 +84,14 @@ const config: InputFileConfig = {};
     ShowModalMultipleTablesComponent,
     LoginComponent,
     HomeComponent,
-    EditPasswordFormComponent,
-    EditPasswordModalComponent,
     ChangePasswordComponent,
     SelectTablePaginationComponent,
     SelectPaginationModalComponent,
     UserAccountModalComponent,
-    UpdateDataComponent,
-    UsersAccountsComponent,
-    UserAccountFormComponent
+    UserAccountFormComponent,
+    MedicalAppointmentComponent,
+    MedicalAppointmentModalComponent,
+    MedicalAppointmentFormComponent
   ],
   imports: [
     BrowserModule,
@@ -128,12 +126,12 @@ const config: InputFileConfig = {};
     ShowModalComponent,
     ShowModalMultipleTablesComponent,
     UserAccountModalComponent,
-    EditPasswordModalComponent
+    MedicalAppointmentModalComponent
   ],
   providers: [
     { provide: OWL_DATE_TIME_LOCALE, useValue: 'es' },
     { provide: OwlDateTimeIntl, useClass: SpanishIntl },
-    { provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS },
+    // { provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     TitleCasePipe
   ],

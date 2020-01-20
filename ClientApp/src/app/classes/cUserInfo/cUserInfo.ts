@@ -7,7 +7,6 @@ export class CUserInfo {
     public confirmPassword: string;
     public name: string;   
     public active: boolean;
-    public login: string;
     public phoneNumber: string;
     public personalId: string;
 
@@ -18,7 +17,6 @@ export class CUserInfo {
         this.confirmPassword = "";
         this.name = "";
         this.active = true;
-        this.login = "";
         this.phoneNumber = "";
         this.personalId = "";
     }

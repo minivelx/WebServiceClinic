@@ -44,11 +44,11 @@ export class UserAccountFormComponent implements OnInit {
       
     }
     this.formUser = this.formBuilder.group({
-      login: [this.userInfo.login, [Validators.required, Validators.maxLength(100)]],
       email: [this.userInfo.email, [Validators.maxLength(50), Validators.email]],
       name: [this.userInfo.name, [Validators.required, Validators.maxLength(100)]],
       password: [this.userInfo.password, Validators.minLength(6)],
-
+      phoneNumber: [this.userInfo.phoneNumber, [Validators.minLength(7), Validators.maxLength(15)]],
+      personalId: [this.userInfo.personalId, [Validators.maxLength(20), Validators.required]]
     });
     this.setValidatorsPassword();
   }

@@ -8,6 +8,9 @@ import { GlobalService } from 'src/app/services/global/global.service';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 import { trigger, transition, useAnimation } from '@angular/animations';
 import { fadeIn } from 'src/app/animations/fade-in.animation';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { UserAccountModalComponent } from 'src/app/modals/user-account-modal/user-account-modal.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -28,15 +31,18 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
   public login: CLogin;
   public isSubmitted: boolean;
+  public subscriptions: Subscription[];
 
   constructor(private toastr: ToastrService,
     private globalUrlsService: GlobalUrlsService,
     private spinnerService: NgxSpinnerService,
     public formBuilder: FormBuilder,
+    private modalService: BsModalService,
     public globalService: GlobalService,
     public navigationService: NavigationService) {
     this.login = new CLogin();
     this.isSubmitted = false;
+    this.subscriptions = [];
   }
 
   ngOnInit() {
@@ -65,7 +71,7 @@ export class LoginComponent implements OnInit {
         this.globalService.setTokenHeader(result.token);
         this.globalService.roles = result.roles;
         this.globalService.currentUser = result.nombre;
-        this.navigationService.homePage();
+        this.navigationService.medicalAppointmentPage();
       } else {
         this.toastr.error(result.message, "", { timeOut: result.message.length * 100 });
       }
@@ -73,5 +79,21 @@ export class LoginComponent implements OnInit {
       this.spinnerService.hide();
       this.toastr.error(err.message, "", { timeOut: err.message.length * 100 });
     });
+  }
+
+  public openModal() {
+    this.modalService.show(UserAccountModalComponent, { keyboard: false, ignoreBackdropClick: true });
+    this.subscriptions.push(
+      this.modalService.onHidden.subscribe((reason: string) => {
+        this.unsubscribe();
+      })
+    );
+  }
+
+  public unsubscribe() {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
+    });
+    this.subscriptions = [];
   }
 }

@@ -1,18 +1,6 @@
 <form id="formUser" [formGroup]="formUser" autocomplete="off">
   <div class="form-body">
     <div class="form-group">
-      <label class="control-label">Login</label><span class="required-field" *ngIf="isEdit === undefined">
-        *</span>
-      <input [readonly]="isEdit !== undefined" formControlName="login" class="form-control rounded" type="text"
-        [ngClass]="{'invalid-field': isSubmitted && this.formUser.controls.login.invalid}">
-      <div *ngIf="isSubmitted && this.formUser.controls.login.errors">
-        <div *ngIf="isSubmitted && this.formUser.controls.login.errors.required" class="invalid-text">El campo
-          es
-          obligatorio</div>
-        <div *ngIf="isSubmitted && this.formUser.controls.login.errors.maxlength" class="invalid-text">El
-          campo
-          no debe contener más de 100 caracteres</div>
-      </div>
       <label class="control-label">Correo</label>
       <input [readonly]="isEdit !== undefined" formControlName="email" class="form-control rounded" type="text"
         [ngClass]="{'invalid-field': isSubmitted && this.formUser.controls.email.invalid}">
@@ -39,33 +27,57 @@
 
       <div *ngIf="isEdit === undefined">
         <div class="row">
-            <div class="col-sm-6">
-                <label class="control-label">Contraseña</label><span class="required-field" *ngIf="isEdit === undefined">
-                  *</span>
-                <input [readonly]="isEdit !== undefined" formControlName="password" class="form-control rounded" type="password"
-                  [ngClass]="{'invalid-field': isSubmitted && this.formUser.controls.password.invalid}">
-                <div *ngIf="isSubmitted && this.formUser.controls.password.errors">
-                  <div *ngIf="isSubmitted && this.formUser.controls.password.errors.required" class="invalid-text">
-                    El campo
-                    es
-                    obligatorio</div>
-                  <div *ngIf="isSubmitted && this.formUser.controls.password.errors.minLength" class="invalid-text">El
-                    campo debe contener mínimo 3 caracteres</div>
-                </div>
-            </div>  
-            <div class="col-sm-6">
-                <label class="control-label">Confirmar Contraseña</label><span class="required-field"
-                  *ngIf="isEdit === undefined"> *</span>
-                <input [readonly]="isEdit !== undefined" class="form-control rounded" type="password"
-                  [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
+          <div class="col-sm-6">
+            <label class="control-label">Contraseña</label><span class="required-field" *ngIf="isEdit === undefined">
+              *</span>
+            <input [readonly]="isEdit !== undefined" formControlName="password" class="form-control rounded"
+              type="password" [ngClass]="{'invalid-field': isSubmitted && this.formUser.controls.password.invalid}">
+            <div *ngIf="isSubmitted && this.formUser.controls.password.errors">
+              <div *ngIf="isSubmitted && this.formUser.controls.password.errors.required" class="invalid-text">
+                El campo
+                es
+                obligatorio</div>
+              <div *ngIf="isSubmitted && this.formUser.controls.password.errors.minLength" class="invalid-text">El
+                campo debe contener mínimo 3 caracteres</div>
             </div>
+          </div>
+          <div class="col-sm-6">
+            <label class="control-label">Confirmar Contraseña</label><span class="required-field"
+              *ngIf="isEdit === undefined"> *</span>
+            <input [readonly]="isEdit !== undefined" class="form-control rounded" type="password"
+              [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
+          </div>
         </div>
-      </div>      
+      </div>
+
+      <label class="control-label">Teléfono</label>
+      <input [readonly]="isEdit !== undefined" formControlName="phoneNumber" class="form-control rounded" type="text"
+        [ngClass]="{'invalid-field': isSubmitted && this.formUser.controls.phoneNumber.invalid}">
+      <div *ngIf="isSubmitted && this.formUser.controls.phoneNumber.errors">
+        <div *ngIf="isSubmitted && this.formUser.controls.phoneNumber.errors.minLength" class="invalid-text">El
+          campo debe contener mínimo 7 caracteres</div>
+        <div *ngIf="isSubmitted && this.formUser.controls.phoneNumber.errors.maxlength" class="invalid-text">El
+          campo
+          no debe contener más de 15 caracteres</div>
+      </div>
+
+      <label class="control-label">Identificación Personal</label><span class="required-field" *ngIf="isEdit === undefined">
+        *</span>
+      <input [readonly]="isEdit !== undefined" formControlName="personalId" class="form-control rounded" type="text"
+        [ngClass]="{'invalid-field': isSubmitted && this.formUser.controls.personalId.invalid}">
+      <div *ngIf="isSubmitted && this.formUser.controls.personalId.errors">
+        <div *ngIf="isSubmitted && this.formUser.controls.personalId.errors.required" class="invalid-text">El campo
+          es
+          obligatorio</div>
+        <div *ngIf="isSubmitted && this.formUser.controls.personalId.errors.maxlength" class="invalid-text">El
+          campo
+          no debe contener más de 20 caracteres</div>
+      </div>
 
     </div><!-- /.form-group -->
   </div>
 </form>
-<ngx-spinner type="line-spin-clockwise-fade-rotating" size = "default">
+<ngx-spinner type="line-spin-clockwise-fade-rotating" size="default">
   <!--Spinner message-->
   <p></p>
 </ngx-spinner>

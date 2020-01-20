@@ -9,7 +9,10 @@
       </span>
     </a>
     <ul [@fadeVerticalAnimation] *ngIf="state" class="dropdown-menu">
-      <li class="dropdown-header">Cuenta</li>      
+      <li class="dropdown-header">Cuenta</li>
+      <li>
+        <a (click)="navigationService.changePasswordPage()">Cambiar contraseña</a>
+      </li>    
       <li>
         <a (click)="closeSession()">Cerrar sesión</a>
       </li>
