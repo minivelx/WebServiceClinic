@@ -16,7 +16,7 @@ namespace Entities
         [Required]
         public DateTime Date { get; set; }
 
-        [StringLength(450)]
+        [StringLength(450), ForeignKey("User")]
         public string UserId { get; set; }
 
         [Required]
@@ -27,5 +27,8 @@ namespace Entities
 
         [JsonIgnore]
         public MedicalAppointmentType MedicalAppointmentType { get; set; }
+
+        [JsonIgnore]
+        public ApplicationUser User { get; set; }
     }
 }
